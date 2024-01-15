@@ -1,0 +1,21 @@
+[{
+        "nombre": "Usuarios",
+        "redirect": "/dashboard/user"
+    },
+    {
+        "nombre": "Campañas",
+        "redirect": "/dashboard/campaign"
+    },
+    {
+        "nombre": "Grupos",
+        "redirect": "/dashboard/cluster"
+    },
+    {
+        "nombre": "Reportes",
+        "redirect": "/dashboard/customer"
+    },
+    {
+        "nombre": "Clientes",
+        "redirect": "/dashboard/report"
+    }
+]

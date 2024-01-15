@@ -1,1 +1,79 @@
-<p>edit works!</p>
+<h2 mat-dialog-title>Editar campaña</h2>
+<form [formGroup]="form" (ngSubmint)="addEditarCampaign">
+    <mat-dialog-content>
+        <div class="row">
+            <div class="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Identificacion</mat-label>
+                    <input formArrayName="id" matInput placeholder="" autocapitalize="off">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input formArrayName="nombre" matInput placeholder="" autocapitalize="off">
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Cantidad</mat-label>
+                    <input formArrayName="cantidad" matInput placeholder="" autocapitalize="off">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Fecha inicio</mat-label>
+                    <input formArrayName="fechaInicio" matInput [matDatepicker]="picker" autocapitalize="off">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Fecha final</mat-label>
+                    <input formArrayName="fechaFinal" matInput [matDatepicker]="picker1" autocapitalize="off">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Observaciones</mat-label>
+                <input formArrayName="observaciones" matInput placeholder="" autocapitalize="off">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Equipo</mat-label>
+                <input formArrayName="equipo" matInput placeholder="" autocapitalize="off">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <div class="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Proveedor</mat-label>
+                    <input formArrayName="proveedor" matInput placeholder="" autocapitalize="off">
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formArrayName="estado">
+                        <mat-option *ngFor="let item of tipoEstado" [value]="item">
+                            {{ item }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button type="button" (click)="cancelar()" mat-button>Cancelar</button>
+        <button [disabled]="form.invalid" type="submit" mat-button cdkFocusInitial>Aceptar</button>
+    </mat-dialog-actions>
+</form>
